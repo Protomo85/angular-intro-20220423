@@ -1,14 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { Todo } from './model/todo';
+import {Component, OnInit} from '@angular/core';
+import {Todo} from './model/todo';
 
 @Component({
   selector: 'app-todos',
   templateUrl: './todos.component.html',
-  styleUrls: ['./todos.component.scss']
+  styleUrls: ['./todos.component.scss'],
 })
 export class TodosComponent implements OnInit {
   public todos: Todo[] = [];
   public text: string = '';
+
+  public style = {
+    fontSize: '24px',
+    backgroundColor: '#eef',
+  };
 
   public clear() {
     this.text = '';
@@ -26,12 +31,10 @@ export class TodosComponent implements OnInit {
   }
 
   public setDone(todo: Todo) {
-      todo.done = true;
+    todo.done = true;
   }
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
