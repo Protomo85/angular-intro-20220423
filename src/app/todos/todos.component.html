@@ -2,7 +2,9 @@
     Type the todo below...
 </div>
 
-<input [(ngModel)]="text" />
+<input [(ngModel)]="text" 
+    (keyup.enter)="addTodo()"
+    />
 
 <button (click)="addTodo()">add</button>
 <button (click)="clear()">clear</button>
@@ -13,14 +15,20 @@
 
 <ol>
     <li *ngFor="let todo of todos">
-        <span>
+        <input type="checkbox" [(ngModel)]="todo.done" />
+
+        <span [ngClass]="{done: todo.done}">
      {{ todo.text }}
     </span>
-    <span>
-        {{ todo.created }}
+    <span class="priority">
+        <span  [ngSwitch] ="todo.priority">
+            <span *ngSwitchCase="1">high</span>
+            <span *ngSwitchCase="2">medium</span>
+            <span *ngSwitchDefault>low</span>
+     </span>
+     priority
     </span>
-    <span>
-        {{ todo.done }}
-    </span>
+
+    <button (click)="setDone(todo)">&check;</button>
     </li>
 </ol>
