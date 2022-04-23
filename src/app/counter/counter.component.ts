@@ -6,6 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./counter.component.scss']
 })
 export class CounterComponent implements OnInit {
+ value = 123;
+ text = 'ala ma kota';
+
+ onClick() {
+   this.text = 'asd';
+ }
 
   constructor() { }
 
