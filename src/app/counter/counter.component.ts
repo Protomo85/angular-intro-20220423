@@ -9,8 +9,12 @@ export class CounterComponent implements OnInit {
  value = 123;
  text = 'ala ma kota';
 
- onClick() {
-   this.text = 'asd';
+ increment() {
+   this.value++;
+ }
+
+ decrement() {
+   this.value--;
  }
 
   constructor() { }
